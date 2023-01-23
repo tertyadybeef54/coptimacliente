@@ -72,6 +72,8 @@ export const ProductActual = () => {
       fh.stopPropagation();
     } else {
       const urlActualizar = ApiBack.PRODUCTS_UPDATE + "/" + objeto._id;
+      objeto.nameProduct = nameProduct;
+
       const resultado = await PrivateService.peticionPUT(urlActualizar, objeto);
 
       if (resultado.nuevo) {
@@ -89,7 +91,7 @@ export const ProductActual = () => {
 
   useEffect(() => {
     obtenerUnProduct();
-  },);
+  },[]);
 
   return (
     <main id="main" className="main">

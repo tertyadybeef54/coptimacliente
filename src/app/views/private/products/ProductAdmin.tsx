@@ -16,6 +16,8 @@ export const ProductAdmin = () => {
   const handleClose = () => setShow(false);
   const [objUsu, setObjUsu] = useState<Product>( new Product("", "", 0, new Date(), "", "", "", 0 ) );
   const [arregloProducts, setArregloProducts] = useState<Product[]>([]);
+  const [mutable, setMutable] = useState<Product[]>([]);
+  const [search, setSearch] = useState("");
   // ************************************************************************
 
 
@@ -41,9 +43,17 @@ export const ProductAdmin = () => {
       ApiBack.PRODUCTS_ALL
     );
     setArregloProducts(resultado);
+    setMutable(resultado);
   };
   // ************************************************************************
 
+  const filtrar = (buscar: string)=>{
+    var resultadoBusqueda = arregloProducts.filter((elemento)=>{
+      return elemento.nameProduct.toLowerCase().includes(buscar.toLowerCase()) || elemento.nameStore.toLowerCase().includes(buscar.toLowerCase());
+    });
+    console.log(resultadoBusqueda);
+    setMutable(resultadoBusqueda);
+  }
 
   // ************************************************************************
   useEffect(() => {
@@ -74,6 +84,17 @@ export const ProductAdmin = () => {
       <div className="col-lg-12">
         <div className="card">
           <div className="card-body">
+            <br />
+            <form className="d-flex" role="search">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Buscar por nombre de producto o de tienda"
+                aria-label="Search"
+                value={search}
+                onChange = {(e)=>{setSearch(e.target.value); filtrar(e.target.value)}}
+              />
+            </form>
             <table className="table table-striped">
               <thead>
                 <tr>
@@ -88,7 +109,7 @@ export const ProductAdmin = () => {
                 </tr>
               </thead>
               <tbody>
-                {arregloProducts.map((miProd, indice) => (
+                {mutable.map((miProd, indice) => (
                   <tr key={indice}>
                     <td className="text-center">{indice + 1}</td>
                     <td>{miProd.nameProduct}</td>

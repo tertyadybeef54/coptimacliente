@@ -31,7 +31,7 @@ export const ProductList = () => {
 
   const filtrar = (buscar: string)=>{
     var resultadoBusqueda = arregloProducts.filter((elemento)=>{
-      return elemento.nameProduct.toLowerCase().includes(buscar) || elemento.nameStore.toLowerCase().includes(buscar);
+      return elemento.nameProduct.toLowerCase().includes(buscar.toLowerCase()) || elemento.nameStore.toLowerCase().includes(buscar.toLowerCase());
     });
     console.log(resultadoBusqueda);
     setMutable(resultadoBusqueda);
