@@ -1,5 +1,5 @@
 const ApiBack = {
-    URL: "https://coptimaback-production.up.railway.app",
+    URL: "https://coptimaback.vercel.app",
     CREAR_USUARIO: "/api/publica/usuario/crear",
     INICIAR_SESION: "/api/publica/usuario/iniciar",
   
