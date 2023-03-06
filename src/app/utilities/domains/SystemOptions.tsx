@@ -17,6 +17,8 @@ const opcionesAdmin = [
       { nombre: "Listado", icono: "bi bi-circle", ruta: "/dashboard/listp", },
       { nombre: "Nuevo", icono: "bi bi-circle", ruta: "/dashboard/addp" },
       { nombre: "Administración", icono: "bi bi-circle", ruta: "/dashboard/admp", },
+
+      { nombre: "Pozos", icono: "bi bi-circle", ruta: "/dashboard/pozos", },
       ]
     },
   ];

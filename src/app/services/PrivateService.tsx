@@ -19,6 +19,13 @@ class PrivateService {
     return respuesta;
   }
 
+  public static async peticionGET2(urlServicio: string) {
+  const respuesta =  fetch(ApiBack.POZOS)
+    .then(response => response.json())
+      .then((data) => {return data;});
+    return respuesta;
+  }
+
   // Servicio con bearer para hacer peticiones POST
   // *******************************************************************
   public static async peticionPOST(urlServicio: string, miJSON: any) {

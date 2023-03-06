@@ -20,6 +20,8 @@ import { ProductAdmin } from "../../views/private/products/ProductAdmin";
 import { ProductActual } from "../../views/private/products/ProductActual";
 import { ProductList } from "../../views/private/products/ProductList";
 
+import {Pozos} from "../../views/private/products/Pozos";
+
 
 // Carga Lazy - Supenso
 // ***********************************************************************************************
@@ -54,6 +56,8 @@ const LazyProductCreate = lazy(() => import("../../views/private/products/Produc
 const LazyProductAdmin = lazy(() => import("../../views/private/products/ProductAdmin").then(() => ({ default: ProductAdmin })) );
 const LazyProductActual = lazy(() => import("../../views/private/products/ProductActual").then(() => ({ default: ProductActual })) );
 const LazyProductList = lazy(() => import("../../views/private/products/ProductList").then(() => ({ default: ProductList })) );
+const LazyPozos = lazy(() => import("../../views/private/products/Pozos").then(() => ({ default: Pozos })) );
+
 
 
 export const RoutingBoard = () => {
@@ -77,6 +81,9 @@ export const RoutingBoard = () => {
         <Route path="/admp" element={<LazyProductAdmin />} />
         <Route path="/updatep/:codigo" element={<LazyProductActual />} />
         <Route path="/listp" element={<LazyProductList />} />
+        
+        
+        <Route path="/pozos" element={<LazyPozos />} />
 
         <Route path="*" element={<RecursoNoEncontrado />} />
       </Routes>

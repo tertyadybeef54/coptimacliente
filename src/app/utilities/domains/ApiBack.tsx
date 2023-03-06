@@ -21,6 +21,8 @@ const ApiBack = {
     PRODUCTS_UPDATE: "/api/privada/product/update",
     PRODUCTS_DELETE: "/api/privada/product/delete",
     PRODUCTS_ALL: "/api/privada/product/all",
+
+    POZOS: "https://localhost:7207/api/Pozo"
    
   };
   
